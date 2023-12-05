@@ -6,6 +6,10 @@
     padding: 20px;
 }
 .admin__content-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
     border-bottom: 2px solid lightgray;
     h1{
         font-size: 30px;
