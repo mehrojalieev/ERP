@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {Button, Modal } from "../../utils"
 import {connect, useSelector} from "react-redux";
-import { addStudent, loadStudents, editStudent, deleteStudent } from "../../redux/actions/student-actions";
+import { addStudent, loadStudents, editStudent, deleteStudent } from "../../redux/actions/studentaction";
 import "./Students.scss"
 import { FiEdit, FiTrash } from "react-icons/fi";
 
