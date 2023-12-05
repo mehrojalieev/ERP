@@ -1,54 +1,65 @@
+import "./Students.scss"
 import React, { useEffect, useState } from 'react'
-import instance from '../../services/api'
+import useFetch from '../../services/hooks/useFetch'
 
 const Students = () => {
-  const [allStudentsData, setAllStudentsData] = useState([])
+  const [data, isLoading, error] = useFetch("./student/all")
+
+  console.log(data);
+  const [tableHeaderContent, setTableHeaderContent] = useState([])
 
   useEffect(() => {
-    instance("/student/all")
-      .then(response => {
-        setAllStudentsData(response.data.students)
-        console.log(response.data.students)
-      })
-  }, [])
+    if (data?.students.length > 0) {
+      const { _id, __v, updatedAt, createdAt, ...studentdata } = data.students[0]
 
+      setTableHeaderContent(Object.keys(studentdata))
+    }
+  }, [data])
+
+  console.log(tableHeaderContent);
   return (
     <>
       <div className='admin__content-header'>
         <h1>Students</h1>
       </div>
-    <div className='students'>
-      {
-          <table>
-            <thead>
-              <th>Name</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>Contact</th>
-              <th>Block</th>
-              <th>Room</th>
-              <th>Status</th>
-              <th>Image</th>
-            </thead>
-            <tbody>
-              {
-                allStudentsData.map(student =>
-                  <tr key={student._id}>
-                    <td>{student.name}</td>
-                    <td>{student.address}</td>
-                    <td>{student.city}</td>
-                    <td>{student.contact}</td>
-                    <td>{student.blockNo}</td>
-                    <td>{student.roomNo}</td>
-                    <td>{student.status}</td>
-                    <td><img src={student.image} /></td>
-                  </tr>
-                )
-              }
-            </tbody>
-          </table>
+      <div className="admin__content-body">
+        {
+          !isLoading && data.students.length > 0 ?
+            <table className="students-table">
+              <thead>
+                <tr>
+                  {tableHeaderContent &&
+                    tableHeaderContent.map(thitem =>
+                      <th className='table__th' key={thitem}>{thitem.replace("_", " ")}</th>
+                    )
+                  }
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  data.students.map((student, index) => 
+                    <tr key={student._id}>
+                      {
+                        tableHeaderContent &&
+                        tableHeaderContent.map((thitem, index) =>
+                          <td className='table__td' key={index}>
+                            {
+                              thitem === "image" ? <img src={student[thitem]} /> : student[thitem]
+                            }
+                          </td>
+                          )
+                      }
+                    </tr>
+                   )
+                }
+              </tbody>
+            </table>
+            : <>
+              {isLoading ? <p>Loading...</p> : <p>No Students to display</p>}
+            </>
         }
       </div>
+
     </>
   )
 }
