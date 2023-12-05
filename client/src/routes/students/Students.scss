@@ -1,23 +1,135 @@
+.table-wrapper{
+    height: calc(100vh - 131px);
+    overflow-y: auto;
+}
 
 .students-table{
     border-collapse: collapse;
     width: 100%;
-    margin-top: 10px;
-    text-align: center;
+    margin-top: 40px;
+
+    thead{
+        position: sticky;
+        top: 0;
+    }
+
+    tbody{
+        tr:nth-child(even){
+            background-color: lightgray; 
+        }
+    }
 }
-.table__th{ 
+
+.table__th{
     padding: 15px 10px;
     text-transform: uppercase;
     border: 1px solid black;
+    background-color: darkcyan;
+    color: #fff;
 }
 
 .table__td{
-    vertical-align: middle;
     border: 1px solid black;
+    padding: 15px 10px;
+    vertical-align: middle;
+    text-align: center;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     img{
         width: 40px;
         height: 40px;
-        border-radius: 50%;
         object-fit: cover;
+    }
+}
+
+
+.students-searchbar{
+    display: flex;
+    justify-content: center;
+    gap: 0 20px;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    select{
+        border: none;
+        border-radius: 5px;
+        height: 100%;
+        background-color: darkcyan;
+        color: #fff;
+        outline: none;
+    }
+}
+.search-form{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    gap: 10px;
+    flex: 1;
+    input{
+        width: 450px;
+        height: 37px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        text-indent: 10px;
+        font-size: 18px;
+        outline: none;
+        transition: 0.2s;
+        &:focus{
+            box-shadow: 0 0 5px gray;
+        }
+    }
+    button{
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 1240px){
+    .students-table{
+        thead{
+            display: none;
+        }
+
+        tr{
+            display: block;
+            border: 1px solid black;
+            padding: 10px;
+            td{
+                text-align: left;
+                display: flex;
+                align-items: center;
+                border: none;
+                &::before{
+                    flex: 1;
+                    text-transform: uppercase;
+                    content: attr(data-cell) " : ";
+                }
+            }
+            
+        }
+    }
+}
+
+.table-actions{
+    display: flex;
+    gap: 0 10px;
+}
+
+.form-image-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    img{
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        left: 2px;
+        border-radius: 3px;
+    }
+    input{
+        width: calc(100% - 54px );
+        padding-left: 50px;
     }
 }
