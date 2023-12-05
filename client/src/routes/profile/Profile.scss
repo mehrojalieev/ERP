@@ -1,0 +1,45 @@
+.profile-container{
+
+    .profile-image{
+        display: grid;
+        place-items: center;
+        background-color: darkcyan;
+        border-radius: 50%;
+        width: 55px;
+        height: 50px;
+        h2{
+            font-size: 40px;
+            color: #fff;
+        }
+    }
+}
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+    h3{
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+}
+
+.actions-profile-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+   
+
+}
+.action-profile{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    span{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    p{
+        margin-top: 7px;
+    }
+}
