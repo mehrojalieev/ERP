@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  & > a{
+   a{
     text-decoration: none;
   }
   
@@ -26,7 +26,9 @@
 }
 
 .nav__list {
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   .list__item {
     width: 50%;
@@ -35,9 +37,10 @@
       display: block;
       padding: 20px 0;
       padding-top: 0;
+      font-size: 20px;
+      font-weight: 600;
       text-align: center;
       color: #000;
-
       &--active {
         border-bottom: 2px solid darkcyan;
         color: darkcyan;

@@ -15,17 +15,15 @@ const Auth = () => {
         <h1>ERP AUTH</h1>
       </Link>
       <div className='auth__form-wrapper'>
-        <nav className='auth__nav'>
-          <ul className='nav__list'>
-            <li className='list__item'>
-              <NavLink to="/auth/login" className={({isActive}) => isActive ? "link link--active" : "link"} >Login</NavLink>
-            </li>
-            <li className='list__item'>
-              <NavLink to="/auth/register" className={({isActive}) => isActive ? "link link--active" : "link"} >Register</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <Outlet/>
+        <ul className='nav__list'>
+          <li className='list__item'>
+            <NavLink end to="/auth/login" className={({ isActive }) => isActive ? "link link--active" : "link"} >Login</NavLink>
+          </li>
+          <li className='list__item'>
+            <NavLink to="/auth/register" className={({ isActive }) => isActive ? "link link--active" : "link"} >Register</NavLink>
+          </li>
+        </ul>
+        <Outlet />
       </div>
     </div>
   )
