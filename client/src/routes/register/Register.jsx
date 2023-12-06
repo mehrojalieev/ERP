@@ -13,27 +13,27 @@ const Register = (props) => {
 
   const handleRegisterNewUser = (e) => {
     e.preventDefault();
-    props.register({name, email, password});
+    props.register({ name, email, password });
   }
 
   useEffect(() => {
     console.log(userdata)
-    if(userdata.user){
+    if (userdata.user) {
       navigate("/admin")
-    } 
+    }
   }, [userdata])
 
   return (
     <div className='auth-form-container'>
-        <h2>Register</h2>
-        <form className='auth-form' onSubmit={handleRegisterNewUser}>
-          <input type="text" placeholder='Your name'  value={name} onChange={e => setName(e.target.value)}  />
-          <input type="email" placeholder='Your email'  value={email} onChange={e => setEmail(e.target.value)} />
-          <input type="password" placeholder='Your password'  value={password} onChange={e => setPassword(e.target.value)}  />
-          <Button text={"Register"} type={"submit"} isloading={false} appearence={"success"} />
-        </form>
+      <h2>Register</h2>
+      <form className='auth-form' onSubmit={handleRegisterNewUser}>
+        <input type="text" placeholder='Your name' value={name} onChange={e => setName(e.target.value)} />
+        <input type="email" placeholder='Your email' value={email} onChange={e => setEmail(e.target.value)} />
+        <input type="password" placeholder='Your password' value={password} onChange={e => setPassword(e.target.value)} />
+        <Button text={"Register"} type={"submit"} isloading={false} appearence={"success"} />
+      </form>
     </div>
   )
 }
 
-export default connect (null, { register })(Register)
+export default connect(null, { register })(Register)

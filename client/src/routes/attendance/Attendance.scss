@@ -1,0 +1,61 @@
+.student-attendance-item{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    gap: 10px 0;
+    justify-content: space-between;
+    // padding: 0 30px;
+
+    .checbox-wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="checkbox"]{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 60px;
+        border: 1px solid gray;
+        height: 29px;
+        border-radius: 20px;
+    }
+
+    input[type="checkbox"] + label{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: darkcyan;
+        border-radius: 50%;
+        left: 8px;
+        right: 0;
+        transition: 0.3s;
+    }
+
+    input[type="checkbox"]:checked{
+        background-color: darkcyan;
+    }
+
+    input[type="checkbox"]:checked + label  {
+        left: calc(100% - 28px);
+        background-color: #fff;
+    }
+}
+.form-action{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    input{
+        width: auto;
+        height: 30px;
+        border: none;
+    }
+    background-color: red;
+}
+.form{
+    padding: 13px 20px;
+}
+input[type="date"]{
+    text-indent: 5px;
+    padding-right: 10px;
+}
