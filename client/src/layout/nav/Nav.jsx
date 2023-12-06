@@ -31,7 +31,7 @@ const Nav = () => {
 
           </li>
         </ul>
-      </div>
+      </div>  
       <div className="nav-action">
         {
           userData.user ? <Link to={"/admin"}>Kabinetga Kirish</Link> : <Link to={"/auth"}>Sign in</Link>

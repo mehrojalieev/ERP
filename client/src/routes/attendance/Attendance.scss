@@ -43,14 +43,15 @@
 }
 .form-action{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 10px;
+    border-bottom: 2px solid darkcyan;
+    padding-bottom: 10px;
     input{
         width: auto;
         height: 30px;
-        border: none;
+        font-size: 18px;
     }
-    background-color: red;
 }
 .form{
     padding: 13px 20px;
