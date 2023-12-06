@@ -18,9 +18,9 @@ const Register = (props) => {
 
   useEffect(() => {
     console.log(userdata)
-    if(userdata.user.token){
+    if(userdata.user){
       navigate("/admin")
-    }
+    } 
   }, [userdata])
 
   return (

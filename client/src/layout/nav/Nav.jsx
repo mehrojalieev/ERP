@@ -1,11 +1,15 @@
+import { useSelector } from "react-redux"
 import "./Nav.scss"
 import { NavLink, Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 const Nav = () => {
 
-  const {pathname} = useLocation()
+  const userData = useSelector(state => state.auth)
+  console.log(userData.user);
 
-  return pathname.includes("/admin") ? null : (
+  const { pathname } = useLocation()
+
+  return pathname.includes("/admin") || pathname.includes("/auth") ? null : (
     <nav>
       <div className="nav__logo">
         <h1>ERP</h1>
@@ -29,10 +33,12 @@ const Nav = () => {
         </ul>
       </div>
       <div className="nav-action">
-        <Link to={"/admin"}>Kabinetga Kirish</Link>
+        {
+          userData.user ? <Link to={"/admin"}>Kabinetga Kirish</Link> : <Link to={"/auth"}>Sign in</Link>
+        }
       </div>
     </nav>
-  ) 
-} 
+  )
+}
 
 export default Nav

@@ -8,7 +8,7 @@ const Private = () => {
 
     const userdata = useSelector(state => state.auth);
 
-    return userdata.user && userdata.user.token && validateToken(userdata.user.token) ? <Outlet context={[profiledata, isloading, error]} /> : <Navigate to={"/auth/login"} />
+    return userdata.user && userdata.user.token && validateToken(userdata.user.token) ? <Outlet context={[profiledata, isloading, error]} /> : <Navigate to={"/auth"} />
 }
 
 export default Private
