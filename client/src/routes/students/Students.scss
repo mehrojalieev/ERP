@@ -23,13 +23,14 @@
 .table__th{
     padding: 15px 10px;
     text-transform: uppercase;
-    border: 1px solid black;
     background-color: darkcyan;
     color: #fff;
 }
 
 .table__td{
-    border: 1px solid black;
+    border-left: 1px solid rgb(160, 158, 158);
+    border-right: 1px solid rgb(160, 158, 158);
+    border-bottom: 1px solid rgb(160, 158, 158);
     padding: 15px 10px;
     vertical-align: middle;
     text-align: center;
