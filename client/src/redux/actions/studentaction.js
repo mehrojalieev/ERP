@@ -1,4 +1,4 @@
-import { ADD_STUDENT, ADD_STUDENT_ERROR, ADD_STUDENT_LOADING, LOAD_STUDENTS, LOADING_STUDENT, EDIT_STUDENT_ERROR, EDIT_STUDENT_LOADING, EDIT_STUDENT, DELETE_STUDENT, DELETE_STUDENT_ERROR, DELETE_STUDENT_LOADING } from "./index";
+import { ADD_STUDENT, ADD_STUDENT_ERROR, ADD_STUDENT_LOADING, LOAD_STUDENTS, LOADING_STUDENT, EDIT_STUDENT_ERROR, EDIT_STUDENT_LOADING, EDIT_STUDENT, DELETE_STUDENT, DELETE_STUDENT_ERROR, DELETE_STUDENT_LOADING, LOAD_ATTENDANCE, LOADING_ATTENDANCE } from "./index";
 import axios from "../../services/api"
 import {toast} from "react-toastify";
 
@@ -50,6 +50,8 @@ const loading_students = () => {
     }
 }
 
+
+
 const edit_student = (student, message) => {
     toast.success(message);
     return {
@@ -60,6 +62,23 @@ const edit_student = (student, message) => {
         }
     }
 }
+
+const load_attendance = (attendance) => {
+    return {
+        type: LOAD_ATTENDANCE,
+        payload: {
+            attendance
+        }
+    }
+}
+
+
+const loading_attendance = () => {
+    return {
+        type: LOADING_ATTENDANCE
+    }
+}
+
 
 const edit_student_loading = (message) => {
     toast.warning(message, {
@@ -137,7 +156,7 @@ const editStudent = (STUDENT) => async dispatch => {
             dispatch(edit_student_error(error.response.data.message))
         })
 }
-
+    
 const deleteStudent = (id) => async dispatch => {
     dispatch(delete_student_loading("Loading..."))
     axios.delete(`/student/${id}`)
@@ -156,6 +175,16 @@ const loadStudents = () => async dispatch => {
         .catch(error => console.log(error.response.data.message))
 }
 
+const loadAttendance = () => async dispatch => {
+    dispatch((loading_attendance()))
+    axios.get(`/attendance/getAnalysis`)
+    .then(response => {
+        dispatch(load_attendance(response?.data))
+    })
+    .catch(error => console.log(error))
+}
 
 
-export { addStudent, loadStudents, editStudent, deleteStudent }
+
+
+export { addStudent, loadStudents, loadAttendance,  editStudent, deleteStudent }

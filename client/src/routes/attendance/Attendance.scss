@@ -2,9 +2,7 @@
     display: flex;
     align-items: center;
     padding: 10px 0;
-    gap: 10px 0;
     justify-content: space-between;
-    // padding: 0 30px;
 
     .checbox-wrapper{
         position: relative;
@@ -41,22 +39,51 @@
         background-color: #fff;
     }
 }
-.form-action{
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    border-bottom: 2px solid darkcyan;
-    padding-bottom: 10px;
-    input{
-        width: auto;
-        height: 30px;
-        font-size: 18px;
-    }
-}
-.form{
-    padding: 13px 20px;
-}
+
 input[type="date"]{
     text-indent: 5px;
     padding-right: 10px;
+}
+
+
+.attendance-table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 40px;
+
+    thead{
+        position: sticky;
+        top: 0;
+    }
+
+    tbody{
+        tr:nth-child(even){
+            background-color: lightgray; 
+        }
+    }
+}
+
+.table__th{
+    padding: 15px 10px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    background-color: darkcyan;
+    color: #fff;
+}
+
+.table__td{
+    border: 1px solid black;
+    padding: 15px 10px;
+    vertical-align: middle;
+    text-align: center;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
 }
