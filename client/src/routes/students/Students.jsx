@@ -111,7 +111,7 @@ const Students = (props) => {
     }
   }
   // SEARCH
-  const [search,setSearch] = useState("")
+  const [search, setSearch] = useState("")
   console.log(search);
 
   // STATUS
@@ -131,8 +131,8 @@ const Students = (props) => {
             <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search..." />
             <Button text={"Search"} />
           </form>
-          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value) }>
-          <option value={""}>Select student category</option>
+          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+            <option value={""}>Select student category</option>
             {
               ["hostel", "home", "rent"].map((item, index) =>
                 <option key={index} value={item} >{item}</option>
@@ -202,8 +202,8 @@ const Students = (props) => {
             }
           </select>
           <input type="text" placeholder="Enter student city" value={city} onChange={e => setCity(e.target.value)} />
-          <input type="text" placeholder="Enter student contact" value={contact} onChange={e => setContact(e.target.value)} />
-          <input type="text" placeholder="Enter student father's contact" value={fatherContact} onChange={e => setFatherContact(e.target.value)} />
+          <input type="number" placeholder="Enter student contact" value={contact} onChange={e => setContact(e.target.value)} />
+          <input type="number" placeholder="Enter student father's contact" value={fatherContact} onChange={e => setFatherContact(e.target.value)} />
           <div className="form-image-wrapper">
             <img src={image ? image : "https://p.kindpng.com/picc/s/207-2074624_white-gray-circle-avatar-png-transparent-png.png"} alt="" />
             <input type="url" placeholder="Enter student image" value={image} onChange={e => setImage(e.target.value)} />
